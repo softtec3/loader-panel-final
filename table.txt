@@ -1,0 +1,37 @@
+//invoices table
+$sql = "CREATE TABLE IF NOT EXISTS invoices(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_email VARCHAR(100) DEFAULT NULL,
+    customer_name VARCHAR(100) DEFAULT NULL,
+    desired_product VARCHAR(255) DEFAULT NULL,
+    invoice_amount DECIMAL(10, 2) DEFAULT 0,
+    invoice_number VARCHAR(50) DEFAULT NULL,
+    invoice_link TEXT DEFAULT NULL,
+    invoice_purpose VARCHAR(255) DEFAULT NULL,
+    cost DECIMAL(10, 2) DEFAULT 0,
+    payable_amount DECIMAL(10, 2) DEFAULT 0,
+    due_date VARCHAR(255) DEFAULT NULL,
+    remark VARCHAR(255) DEFAULT NULL,
+    created_at timestamp default CURRENT_TIMESTAMP,
+    status ENUM('requested','unpaid','pending','paid','rejected') DEFAULT 'requested'
+)";
+
+//loader_log
+
+$sql = "CREATE TABLE IF NOT EXISTS loader_log(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(100) NOT NULL,
+    password VARCHAR(50) NOT NULL 
+)";
+
+
+
+//emails table
+CREATE TABLE IF NOT EXISTS emails(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product VARCHAR(255) NOT NULL,
+    recipent VARCHAR(100) NOT NULL,
+    subject TEXT NOT NULL,
+    body TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)

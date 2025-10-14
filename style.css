@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* Root */
+:root {
+  --primaryColor: #ff7810;
+  --primaryShadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+#container {
+  display: flex;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+}
+/* Sidebar styles*/
+#sideBar {
+  width: 250px;
+  border-right: 1px solid gainsboro;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+#openSidebarBtn {
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+#closeSidebarBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: none;
+}
+#navLinks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#navLinks li {
+  list-style: none;
+  padding: 5px;
+  border: 1px solid var(--primaryColor);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#navLinks li:hover {
+  background-color: rgba(220, 220, 220, 0.2);
+}
+/* Main content styles */
+#mainContent {
+  flex: 1;
+}
+.section {
+  padding: 20px;
+  max-height: 90vh;
+  min-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+#request {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* Request section styles */
+.defaultForm {
+  padding: 20px;
+  box-shadow: var(--primaryShadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 350px;
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+}
+.defaultForm #invoiceReqClose {
+  width: 30px;
+  height: 30px;
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.defaultForm h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.defaultForm .formElement {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.defaultForm .formElement input,
+select {
+  padding: 8px;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid gainsboro;
+}
+.defaultForm .formElement button {
+  padding: 8px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+}
+/* Section header */
+.sectionHeader {
+  border: 1px solid gainsboro;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: var(--primaryShadow);
+  font-size: 24px;
+  font-weight: 500;
+}
+/* Loader table styles */
+.loaderTable {
+  margin-top: 20px;
+  max-width: 100%;
+  height: 80vh;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.loaderTable table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+  border-radius: 3px;
+  box-shadow: var(--primaryShadow);
+}
+.loaderTable table thead {
+  background-color: var(--primaryColor);
+  color: white;
+}
+.loaderTable table th,
+td {
+  padding: 5px;
+  border: 1px solid gainsboro;
+  text-align: center;
+}
+.payNowBtn {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+/* Send email */
+#sendEmail form {
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  min-width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#sendEmail form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#sendEmail form select,
+#sendEmail form input,
+#sendEmail form textarea {
+  padding: 8px;
+  border: 1px solid gainsboro;
+  outline: none;
+  border-radius: 3px;
+}
+#sePlaceholder {
+  width: 100%;
+  min-height: 250px;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+  padding: 8px;
+}
+.btn {
+  padding: 8px;
+  border: none;
+  background-color: var(--primaryColor);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 15px;
+}
+/* Responsive part */
+@media only screen and (max-width: 1100px) {
+  #container {
+    flex-direction: column;
+  }
+  #openSidebarBtn {
+    display: block;
+  }
+  #closeSidebarBtn {
+    display: flex;
+  }
+  #sideBar {
+    position: fixed;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: white;
+    z-index: 50;
+    display: none;
+  }
+  .section {
+    padding: 5px;
+  }
+}
