@@ -7,6 +7,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require_once("./db_connect.php");
+include_once("./config.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product = $_POST['seSelect'];
     $to = $_POST['seEmail'];
@@ -18,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'mail.soft-techtechnologyllc.com';
+        $mail->Host = $credential["host"];
         $mail->SMTPAuth = true;
-        $mail->Username = 'sales1@soft-techtechnologyllc.com';
-        $mail->Password = 'soft085245tech';
+        $mail->Username = $credential["username"];
+        $mail->Password = $credential["password"];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
+        $mail->Port = $credential["port"];
 
         // Sender and recipient
         $mail->setFrom('sales1@soft-techtechnologyllc.com', 'SoftTech Technology LLC');
